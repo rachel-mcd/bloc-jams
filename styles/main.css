@@ -63,6 +63,11 @@ html {
      margin: 0 auto;
      max-width: 64rem;
  }
+
+ .container.narrow {
+     max-width: 56rem;
+ }
+
    /*assignment8*/
  .links-container .navbar-link:active {
      color: rgb(233,50,117);
