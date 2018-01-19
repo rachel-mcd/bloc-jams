@@ -19,6 +19,22 @@ var albumPicasso = {
      artist: 'Guglielmo Marconi',
      label: 'EM',
      year: '1909',
+     albumArtUrl: 'assets/images/album_covers/hamiltoncover.png',
+     songs: [
+         { title: 'Alexander Hamilton', duration: '3:56' },
+         { title: 'Aaron Burr, Sir', duration: '2:36' },
+         { title: 'My Shot', duration: '5:33'},
+         { title: 'The Story of Tonight', duration: '1:32' },
+         { title: 'The Schuyler Sisters', duration: '3:06'}
+     ]
+ };
+
+ // my Album
+ var albumHamilton = {
+     title: 'Hamilton (Original Broadway Cast Recording)',
+     artist: 'Various artists',
+     label: 'Atlantic',
+     year: '2015',
      albumArtUrl: 'assets/images/album_covers/20.png',
      songs: [
          { title: 'Hello, Operator?', duration: '1:01' },
@@ -39,29 +55,36 @@ var albumPicasso = {
 
      return template;
  };
- var setCurrentAlbum = function(album) {
-     // #1
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
-     // #2
+ var albumTitle = document.getElementsByClassName('album-view-title')[0];
+ var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+ var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+ var albumImage = document.getElementsByClassName('album-cover-art')[0];
+ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+ var setCurrentAlbum = function(album) {
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
      albumImage.setAttribute('src', album.albumArtUrl);
 
-     // #3
      albumSongList.innerHTML = '';
 
-     // #4
-     for (var i = 0; i < album.songs.length; i++) {
+     for (i = 0; i < album.songs.length; i++) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
  };
 
  window.onload = function() {
-     setCurrentAlbum(albumPicasso);
+   setCurrentAlbum(albumPicasso);
+
+   var albums = [albumPicasso, albumMarconi, albumHamilton];
+   var index = 1;
+   albumImage.addEventListener("click", function(event) {
+     setCurrentAlbum(albums[index]);
+     index++;
+     if (index == albums.length) {
+       index = 0;
+         }
+   });
  };
