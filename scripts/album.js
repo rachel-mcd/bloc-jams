@@ -299,7 +299,7 @@ var playerBarPlayButton = '<span class="ion-play"></span>';
 var playerBarPauseButton = '<span class="ion-pause"></span>';
 
 var currentAlbum = null;
-var currentlyPlayingSongNumber = null;
+var currentlyPlayingSongNumber = parseInt(null);
 var currentSongFromAlbum = null;
 var currentSoundFile = null;
 var currentVolume = 80;
