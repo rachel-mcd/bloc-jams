@@ -3,7 +3,7 @@
      bottom: 0;
      left: 0;
      right: 0;
-     height: 200px;
+     height: 150px;
      background-color: rgba(255, 255, 255, 0.3);
      z-index: 100;
  }
@@ -51,7 +51,7 @@
      position: relative;
  }
 
- .player-bar .currently-playing .song-name,
+ .player-bar .currently-playing .song-title,
  .player-bar .currently-playing .artist-name,
  .player-bar .currently-playing .artist-song-mobile {
      text-align: center;
@@ -62,13 +62,13 @@
      font-weight: 300;
  }
 
- .player-bar .currently-playing .song-name,
+ .player-bar .currently-playing .song-title,
  .player-bar .currently-playing .artist-song-mobile {
-     top: 1.1rem;
+top: 1.1rem;
  }
 
  .player-bar .currently-playing .artist-name {
-     bottom: 1.1rem;
+bottom: 1.1rem;
  }
 
  .player-bar .currently-playing .artist-song-mobile {
@@ -112,15 +112,18 @@
      width: 0.5rem;
      background-color: white;
      left: 36%;
-     top: 50%;
-     /* #1 */
      margin-left: -0.25rem;
+     top: 50%;
      margin-top: -0.25rem;
      border-radius: 50%;
      cursor: pointer;
      -webkit-transition: all 100ms ease-in-out;
-        -moz-transition: all 100ms ease-in-out;
-             transition: all 100ms ease-in-out;
+     -moz-transition: all 100ms ease-in-out;
+        transition:
+            width 100ms ease-in-out,
+            height 100ms ease-in-out,
+            margin-top 100ms ease-in-out,
+            margin-left 100ms ease-in-out;
  }
 
  .seek-bar:hover .thumb {
@@ -129,6 +132,7 @@
      margin-top: -0.5rem;
      margin-left: -0.5rem;
  }
+
  .player-bar .volume {
      width: 25%;
      text-align: right;
@@ -171,12 +175,12 @@
          min-height: 2.5rem;
      }
 
-     .player-bar .artist-name,
-     .player-bar .song-name {
+     .artist-name,
+     .song-name {
          display: none;
      }
 
-     .player-bar .currently-playing .artist-song-mobile {
+     .artist-song-mobile {
          display: block;
      }
  }
